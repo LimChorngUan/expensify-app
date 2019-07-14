@@ -1,9 +1,9 @@
 import React from 'react';
-import ReduxPlayground from './playground/redux-101'
+import ExpensifyPlayground from './playground/redux-expensify'
 
 function App() {
   return (
-    <ReduxPlayground />
+    <ExpensifyPlayground />
   );
 }
 

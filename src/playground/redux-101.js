@@ -1,21 +1,7 @@
 import React from 'react'
 import { createStore } from 'redux'
 
-const store = createStore((state = { count: 0 }, action) => {
-  switch (action.type) {
-    case `INCREMENT`:
-      return { count: state.count + action.incrementBy }
-    case `DECREMENT`:
-      return { count: state.count - action.decrementBy }
-    case `SET`:
-      return { count: action.setCount }
-    case `RESET`:
-      return { count: 0 }
-    default:
-      return state
-  }
-})
-
+// Action Factory
 const addIncrement = ({ incrementBy = 1 } = {}) => ({
   type: `INCREMENT`,
   incrementBy,
@@ -35,6 +21,24 @@ const addReset = () => ({
   type: `RESET`,
 })
 
+// Reducer
+const countReducer = (state = { count: 0 }, action) => {
+  switch (action.type) {
+    case `INCREMENT`:
+      return { count: state.count + action.incrementBy }
+    case `DECREMENT`:
+      return { count: state.count - action.decrementBy }
+    case `SET`:
+      return { count: action.setCount }
+    case `RESET`:
+      return { count: 0 }
+    default:
+      return state
+  }
+}
+
+const store = createStore(countReducer)
+
 const unsubscribe = store.subscribe(() => {
   console.log(store.getState())
 })
@@ -50,12 +54,3 @@ store.dispatch(addReset())
 store.dispatch(addDecrement())
 
 store.dispatch(addDecrement({ decrementBy: 10 }))
-
-
-const ReduxPlayground = () => (
-  <div>
-    redux
-  </div>
-)
-
-export default ReduxPlayground
