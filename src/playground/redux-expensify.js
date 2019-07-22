@@ -1,6 +1,7 @@
 import React from 'react'
 import { createStore, combineReducers } from 'redux'
 import uuid from 'uuid'
+import _ from 'lodash'
 
 // Expense Actions
 const addExpense = ({
@@ -127,8 +128,25 @@ const store = createStore(combineReducers({
   filters: filtersReducer,
 }))
 
+const getVisibleExpenses = (expenses, { text, sortBy, startDate, endDate}) => {
+  const filteredExpenses = expenses.filter(expense => {
+    const textMatch = expense.description.toLowerCase().includes(text.toLowerCase())
+    const startDateMatch = typeof startDate !== `number` || expense.createdAt >= startDate
+    const endDateMatch = typeof endDate !== `number` || expense.createdAt <= endDate
+
+    return textMatch && startDateMatch && endDateMatch
+  })
+
+  if (sortBy === `amount`) {
+    return _.sortBy(filteredExpenses, [`amount`])
+  } else if (sortBy === `date`) {
+    return _.sortBy(filteredExpenses, [`createdAt`])
+  }
+}
+
 store.subscribe(() => {
-  console.log(store.getState())
+  const state = store.getState()
+  console.log(getVisibleExpenses(state.expenses, state.filters))
 })
 
 // Dispatch Actions
@@ -136,17 +154,20 @@ const expense1 = store.dispatch(addExpense({
   description: `July rent`,
   note: `Final payment for this address`,
   amount: 40000,
+  createdAt: 1,
 }))
 
 const expense2 = store.dispatch(addExpense({
   description: `Bubble tea`,
   note: `Delicious`,
   amount: 400,
+  createdAt: 250,
 }))
 
 const expense3 = store.dispatch(addExpense({
   description: `Hair treatment`,
   amount: 16600,
+  createdAt: 250,
 }))
 
 store.dispatch(removeExpense({ id: expense2.expense.id }))
@@ -159,19 +180,25 @@ store.dispatch(editExpense(
   }
 ))
 
-store.dispatch(setTextFilter(`rent`))
+store.dispatch(addExpense({
+  description: `locitance`,
+  amount: 15000,
+  createdAt: 35,
+}))
 
-store.dispatch(setTextFilter())
+// store.dispatch(setTextFilter(`hair`))
+
+// store.dispatch(setTextFilter())
 
 store.dispatch(sortByDate())
 
-store.dispatch(sortByAmount())
+// store.dispatch(sortByAmount())
 
-store.dispatch(setStartDate(125))
+// store.dispatch(setStartDate(20))
 
-store.dispatch(setStartDate())
+// store.dispatch(setStartDate())
 
-store.dispatch(setEndDate(20))
+// store.dispatch(setEndDate(200))
 
 // Demo state
 const demoState = {
