@@ -1,9 +1,34 @@
-import React from 'react';
+import React, { useCallback } from 'react'
+import { connect } from 'react-redux'
 
-const AddExpensePage = () => (
-  <div>
-    This is from my add expense component
-  </div>
-);
+import { addExpense } from '../actions/expenses'
 
-export default AddExpensePage;
+import ExpenseForm from './ExpenseForm'
+
+const AddExpensePage = ({
+  addExpense,
+  history
+}) => {
+  const handleSubmit = useCallback((e, expense) => {
+    e.preventDefault()
+    addExpense(expense)
+    history.push(`/`)
+  }, [])
+
+  return (
+    <div>
+      This is from my add expense component
+      <ExpenseForm handleSubmit={handleSubmit} formType="add" />
+    </div>
+  )
+}
+
+
+const mapDispatchToProps = dispatch => ({
+  addExpense: expense => dispatch(addExpense(expense))
+})
+
+export default connect(
+  null,
+  mapDispatchToProps,
+)(AddExpensePage)

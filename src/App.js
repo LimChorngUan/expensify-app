@@ -11,11 +11,6 @@ import AppRouter from './routers/AppRouter'
 const store = configureStore()
 
 store.dispatch(addExpense({
-  description: `Rent`,
-  amount: 40000,
-  createdAt: 1,
-}))
-store.dispatch(addExpense({
   description: `Hair treatment`,
   note: `Pretty Pretty`,
   amount: 16600,
@@ -27,11 +22,17 @@ store.dispatch(addExpense({
   amount: 400,
   createdAt: 3,
 }))
-store.dispatch(setTextFilter(``))
-
-const visibleExpenses = getVisibleExpenses(store.getState().expenses, store.getState().filters)
-
-console.log(visibleExpenses)
+store.dispatch(addExpense({
+  description: `Yoga Mat`,
+  note: `Workout RAhhh!`,
+  amount: 2000,
+  createdAt: 4,
+}))
+store.dispatch(addExpense({
+  description: `Meow`,
+  amount: 60000,
+  createdAt: 5,
+}))
 
 function App() {
   return (
