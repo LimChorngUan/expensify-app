@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import _ from 'lodash'
 
 import filterExpense from '../selectors/expenses'
 
@@ -11,9 +12,15 @@ const ExpenseList = ({
   <div>
     <h1>My Expenses</h1>
 
-    {expenses.map(item => (
-      <ExpenseListItem key={item.id} {...item}></ExpenseListItem>
-    ))}
+    {!_.size(expenses) && (
+      <p>No expense</p>
+    )}
+
+    {_.size(expenses) &&
+      expenses.map(item => (
+        <ExpenseListItem key={item.id} {...item}></ExpenseListItem>
+      ))
+    }
   </div>
 )
 
@@ -24,3 +31,4 @@ const mapStateToProps = (state) => ({
 export default connect(
   mapStateToProps
 )(ExpenseList)
+export { ExpenseList }

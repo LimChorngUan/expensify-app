@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component: ExpenseList Should render "No expense" when expenses is an empty array 1`] = `
+<div>
+  <h1>
+    My Expenses
+  </h1>
+  <p>
+    No expense
+  </p>
+  0
+</div>
+`;
+
+exports[`Component: ExpenseList Should render "No expense" when expenses is undefined 1`] = `
+<div>
+  <h1>
+    My Expenses
+  </h1>
+  <p>
+    No expense
+  </p>
+  0
+</div>
+`;
+
+exports[`Component: ExpenseList Should render a list of expenses 1`] = `
+<div>
+  <h1>
+    My Expenses
+  </h1>
+  <ExpenseListItem
+    amount={1}
+    createdAt={1}
+    description="A"
+    id="A"
+    key="A"
+    note="aaa"
+  />
+  <ExpenseListItem
+    amount={5}
+    createdAt={-1}
+    description="B"
+    id="B"
+    key="B"
+    note="bbb"
+  />
+  <ExpenseListItem
+    amount={3}
+    createdAt={2}
+    description="C"
+    id="C"
+    key="C"
+    note="ccc"
+  />
+</div>
+`;

@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "enzyme-to-json": "^3.4.0",
     "lodash": "^4.17.14",
     "moment": "^2.24.0",
     "react": "^16.8.6",
@@ -34,5 +35,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0",
+    "react-test-renderer": "^16.9.0"
   }
 }

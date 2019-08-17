@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const FORM_TYPE = {
+export const FORM_TYPE = {
   ADD: `add`,
   EDIT: `edit`,
 }
@@ -22,12 +22,16 @@ const ExpenseForm = ({
 
   return (
     <div>
-      <form onSubmit={(e) => handleSubmit(e, {
-        description,
-        amount,
-        createdAt,
-        note,
-      })}>
+      <form
+        data-test-id="expense-form"
+        onSubmit={(e) => handleSubmit(e, {
+          description,
+          amount,
+          createdAt,
+          note,
+        })}
+
+      >
         <input
           type="text"
           placeholder="description"

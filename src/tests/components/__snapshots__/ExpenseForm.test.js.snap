@@ -1,0 +1,153 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component: ExpenseForm should render correctly with provided expense Add expense form 1`] = `
+<div>
+  <form
+    data-test-id="expense-form"
+    onSubmit={[Function]}
+  >
+    <input
+      onChange={[Function]}
+      placeholder="description"
+      type="text"
+      value="A"
+    />
+    <input
+      onChange={[Function]}
+      placeholder="amount"
+      type="number"
+      value={1}
+    />
+    <input
+      onChange={[Function]}
+      placeholder="created at"
+      type="number"
+      value={1}
+    />
+    <textarea
+      onChange={[Function]}
+      placeholder="Write your notes here (optional)"
+      value="aaa"
+    />
+    <button
+      type="submit"
+    >
+      Add Expense
+    </button>
+  </form>
+</div>
+`;
+
+exports[`Component: ExpenseForm should render correctly with provided expense Edit expense form 1`] = `
+<div>
+  <form
+    data-test-id="expense-form"
+    onSubmit={[Function]}
+  >
+    <input
+      onChange={[Function]}
+      placeholder="description"
+      type="text"
+      value="A"
+    />
+    <input
+      onChange={[Function]}
+      placeholder="amount"
+      type="number"
+      value={1}
+    />
+    <input
+      onChange={[Function]}
+      placeholder="created at"
+      type="number"
+      value={1}
+    />
+    <textarea
+      onChange={[Function]}
+      placeholder="Write your notes here (optional)"
+      value="aaa"
+    />
+    <button
+      type="submit"
+    >
+      Edit Expense
+    </button>
+  </form>
+</div>
+`;
+
+exports[`Component: ExpenseForm should render the correct form type Add expense form type 1`] = `
+<div>
+  <form
+    data-test-id="expense-form"
+    onSubmit={[Function]}
+  >
+    <input
+      onChange={[Function]}
+      placeholder="description"
+      type="text"
+      value=""
+    />
+    <input
+      onChange={[Function]}
+      placeholder="amount"
+      type="number"
+      value={0}
+    />
+    <input
+      onChange={[Function]}
+      placeholder="created at"
+      type="number"
+      value={0}
+    />
+    <textarea
+      onChange={[Function]}
+      placeholder="Write your notes here (optional)"
+      value=""
+    />
+    <button
+      type="submit"
+    >
+      Add Expense
+    </button>
+  </form>
+</div>
+`;
+
+exports[`Component: ExpenseForm should render the correct form type Edit expense form type 1`] = `
+<div>
+  <form
+    data-test-id="expense-form"
+    onSubmit={[Function]}
+  >
+    <input
+      onChange={[Function]}
+      placeholder="description"
+      type="text"
+      value=""
+    />
+    <input
+      onChange={[Function]}
+      placeholder="amount"
+      type="number"
+      value={0}
+    />
+    <input
+      onChange={[Function]}
+      placeholder="created at"
+      type="number"
+      value={0}
+    />
+    <textarea
+      onChange={[Function]}
+      placeholder="Write your notes here (optional)"
+      value=""
+    />
+    <button
+      type="submit"
+    >
+      Edit Expense
+    </button>
+  </form>
+</div>
+`;
