@@ -34,18 +34,70 @@ describe(`Component: ExpenseForm`, () => {
   })
 
   describe(`Test user iteraction`, () => {
-    const mockedEvent = {}
+    let component
+    let mockedEvent
 
-    test(`handleSumit is called on form submit `, () => {
-      const component = mount(
+    beforeEach(() => {
+      component = mount(
         <ExpenseForm
           formType={FORM_TYPE.ADD}
           handleSubmit={jest.fn()}
         />
         )
+    })
+
+    test(`description input value is updated on input change`, () => {
+      mockedEvent = {
+        target: {
+          value: `A`,
+        },
+      }
+
+      component.find(generateTestId(`description-input`)).simulate(`change`, mockedEvent)
+      expect(component.find(generateTestId(`description-input`)).props().value).toEqual(`A`)
+    })
+
+    test(`note text area value is updated on text area change`, () => {
+      mockedEvent = {
+        target: {
+          value: `aaaaa`,
+        },
+      }
+
+      component.find(generateTestId(`note-input`)).simulate(`change`, mockedEvent)
+      expect(component.find(generateTestId(`note-input`)).props().value).toEqual(`aaaaa`)
+    })
+
+    test(`amount input value is updated on input change`, () => {
+      mockedEvent = {
+        target: {
+          value: 20,
+        },
+      }
+
+      component.find(generateTestId(`amount-input`)).simulate(`change`, mockedEvent)
+      expect(component.find(generateTestId(`amount-input`)).props().value).toEqual(20)
+    })
+
+    test(`handleSubmit is called on form submit`, () => {
+      mockedEvent = { preventDefault: jest.fn() }
+
       component.find(generateTestId(`expense-form`)).simulate(`submit`, mockedEvent)
       expect(component.props().handleSubmit).toBeCalledTimes(1)
     })
 
+    test(`handleSubmit is called with correct argument`, () => {
+      component.find(generateTestId(`description-input`)).simulate(`change`, { target: { value: `A` }})
+      component.find(generateTestId(`amount-input`)).simulate(`change`, { target: { value: 20 }})
+      component.find(generateTestId(`note-input`)).simulate(`change`, { target: { value: `aaaaa` }})
+
+      component.find(generateTestId(`expense-form`)).simulate(`submit`, { preventDefault: jest.fn()})
+      expect(component.props().handleSubmit).toBeCalledWith({
+        description: `A`,
+        amount: 20,
+        createdAt: 0,
+        note: `aaaaa`,
+      })
+    })
   })
 })

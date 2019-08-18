@@ -23,26 +23,30 @@ const ExpenseForm = ({
   return (
     <div>
       <form
+        onSubmit={(e) => {
+          e.preventDefault()
+          handleSubmit({
+            description,
+            amount,
+            createdAt,
+            note,
+          })
+        }}
         data-test-id="expense-form"
-        onSubmit={(e) => handleSubmit(e, {
-          description,
-          amount,
-          createdAt,
-          note,
-        })}
-
       >
         <input
           type="text"
           placeholder="description"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
+          data-test-id="description-input"
         />
         <input
           type="number"
           placeholder="amount"
           value={amount}
           onChange={(e) => setAmount(e.target.value)}
+          data-test-id="amount-input"
         />
         <input
           type="number"
@@ -54,6 +58,7 @@ const ExpenseForm = ({
           placeholder="Write your notes here (optional)"
           value={note}
           onChange={(e) => setNote(e.target.value)}
+          data-test-id="note-input"
         />
         <button type="submit">{BUTTON_TEXT[formType]}</button>
       </form>

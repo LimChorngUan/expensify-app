@@ -7,12 +7,14 @@ exports[`Component: ExpenseForm should render correctly with provided expense Ad
     onSubmit={[Function]}
   >
     <input
+      data-test-id="description-input"
       onChange={[Function]}
       placeholder="description"
       type="text"
       value="A"
     />
     <input
+      data-test-id="amount-input"
       onChange={[Function]}
       placeholder="amount"
       type="number"
@@ -25,6 +27,7 @@ exports[`Component: ExpenseForm should render correctly with provided expense Ad
       value={1}
     />
     <textarea
+      data-test-id="note-input"
       onChange={[Function]}
       placeholder="Write your notes here (optional)"
       value="aaa"
@@ -45,12 +48,14 @@ exports[`Component: ExpenseForm should render correctly with provided expense Ed
     onSubmit={[Function]}
   >
     <input
+      data-test-id="description-input"
       onChange={[Function]}
       placeholder="description"
       type="text"
       value="A"
     />
     <input
+      data-test-id="amount-input"
       onChange={[Function]}
       placeholder="amount"
       type="number"
@@ -63,6 +68,7 @@ exports[`Component: ExpenseForm should render correctly with provided expense Ed
       value={1}
     />
     <textarea
+      data-test-id="note-input"
       onChange={[Function]}
       placeholder="Write your notes here (optional)"
       value="aaa"
@@ -83,12 +89,14 @@ exports[`Component: ExpenseForm should render the correct form type Add expense 
     onSubmit={[Function]}
   >
     <input
+      data-test-id="description-input"
       onChange={[Function]}
       placeholder="description"
       type="text"
       value=""
     />
     <input
+      data-test-id="amount-input"
       onChange={[Function]}
       placeholder="amount"
       type="number"
@@ -101,6 +109,7 @@ exports[`Component: ExpenseForm should render the correct form type Add expense 
       value={0}
     />
     <textarea
+      data-test-id="note-input"
       onChange={[Function]}
       placeholder="Write your notes here (optional)"
       value=""
@@ -121,12 +130,14 @@ exports[`Component: ExpenseForm should render the correct form type Edit expense
     onSubmit={[Function]}
   >
     <input
+      data-test-id="description-input"
       onChange={[Function]}
       placeholder="description"
       type="text"
       value=""
     />
     <input
+      data-test-id="amount-input"
       onChange={[Function]}
       placeholder="amount"
       type="number"
@@ -139,6 +150,7 @@ exports[`Component: ExpenseForm should render the correct form type Edit expense
       value={0}
     />
     <textarea
+      data-test-id="note-input"
       onChange={[Function]}
       placeholder="Write your notes here (optional)"
       value=""

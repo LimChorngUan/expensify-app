@@ -9,8 +9,7 @@ const AddExpensePage = ({
   addExpense,
   history
 }) => {
-  const handleSubmit = useCallback((e, expense) => {
-    e.preventDefault()
+  const handleSubmit = useCallback(expense => {
     addExpense(expense)
     history.push(`/`)
   }, [])
@@ -18,7 +17,11 @@ const AddExpensePage = ({
   return (
     <div>
       This is from my add expense component
-      <ExpenseForm handleSubmit={handleSubmit} formType="add" />
+      <ExpenseForm
+        handleSubmit={handleSubmit}
+        formType="add"
+        data-test-id="add-expense-form"
+      />
     </div>
   )
 }
@@ -32,3 +35,5 @@ export default connect(
   null,
   mapDispatchToProps,
 )(AddExpensePage)
+
+export { AddExpensePage }
