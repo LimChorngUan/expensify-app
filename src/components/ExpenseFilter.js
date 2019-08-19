@@ -14,7 +14,7 @@ const ExpenseFilter = ({
   sortByDate,
   sortByAmount,
   setStartDate,
-  setEndDate
+  setEndDate,
 }) => {
   const handleSelectChange = useCallback(
     (sortByValue) => {
@@ -33,19 +33,41 @@ const ExpenseFilter = ({
 
   return (
     <div>
-      <input type="text"  value={filters.text} onChange={setTextFilter} />
+      <input
+        type="text"
+        value={filters.text}
+        onChange={setTextFilter}
+        data-test-id="text-filter-input"
+      />
 
       <label htmlFor="sort-by">Sort By:</label>
-      <select id="sort-by" value={filters.sortBy} onChange={(e) => handleSelectChange(e.target.value)}>
+      <select
+        id="sort-by"
+        value={filters.sortBy}
+        onChange={(e) => handleSelectChange(e.target.value)}
+        data-test-id="sort-by-selector"
+      >
         <option value="date">Date</option>
         <option value="amount">Amount</option>
       </select>
 
       <label htmlFor="start-date">Start date</label>
-      <input id="start-date" type="number" value={filters.startDate} onChange={(e) => setStartDate(e.target.value)}/>
+      <input
+        id="start-date"
+        type="number"
+        value={filters.startDate}
+        onChange={(e) => setStartDate(e.target.value)}
+        data-test-id="start-date-input"
+      />
 
       <label htmlFor="end-date">End date</label>
-      <input id="end-date" type="number" value={filters.endDate} onChange={(e) => setEndDate(e.target.value)}/>
+      <input
+        id="end-date"
+        type="number"
+        value={filters.endDate}
+        onChange={(e) => setEndDate(e.target.value)}
+        data-test-id="end-date-input"
+      />
     </div>
   )
 }
@@ -66,3 +88,4 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps,
 )(ExpenseFilter)
+export { ExpenseFilter }

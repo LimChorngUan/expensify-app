@@ -1,0 +1,72 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component: ExpenseFilter should render correctly 1`] = `
+<ExpenseFilter
+  filters={
+    Object {
+      "endDate": undefined,
+      "sortBy": "date",
+      "startDate": undefined,
+      "text": "",
+    }
+  }
+  setEndDate={[MockFunction]}
+  setStartDate={[MockFunction]}
+  setTextFilter={[MockFunction]}
+  sortByAmount={[MockFunction]}
+  sortByDate={[MockFunction]}
+>
+  <div>
+    <input
+      data-test-id="text-filter-input"
+      onChange={[MockFunction]}
+      type="text"
+      value=""
+    />
+    <label
+      htmlFor="sort-by"
+    >
+      Sort By:
+    </label>
+    <select
+      data-test-id="sort-by-selector"
+      id="sort-by"
+      onChange={[Function]}
+      value="date"
+    >
+      <option
+        value="date"
+      >
+        Date
+      </option>
+      <option
+        value="amount"
+      >
+        Amount
+      </option>
+    </select>
+    <label
+      htmlFor="start-date"
+    >
+      Start date
+    </label>
+    <input
+      data-test-id="start-date-input"
+      id="start-date"
+      onChange={[Function]}
+      type="number"
+    />
+    <label
+      htmlFor="end-date"
+    >
+      End date
+    </label>
+    <input
+      data-test-id="end-date-input"
+      id="end-date"
+      onChange={[Function]}
+      type="number"
+    />
+  </div>
+</ExpenseFilter>
+`;

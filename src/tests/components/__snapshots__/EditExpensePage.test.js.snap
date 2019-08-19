@@ -1,0 +1,87 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component: EditExpensePage should render correctly 1`] = `
+<EditExpensePage
+  editExpense={[MockFunction]}
+  expense={
+    Object {
+      "amount": 10,
+      "createdAt": 1,
+      "description": "A",
+      "note": "aaa",
+    }
+  }
+  history={
+    Object {
+      "push": [MockFunction],
+    }
+  }
+  match={
+    Object {
+      "params": Object {
+        "id": "A",
+      },
+    }
+  }
+  removeExpense={[MockFunction]}
+>
+  <ExpenseForm
+    data-test-id="edit-expense-form"
+    expense={
+      Object {
+        "amount": 10,
+        "createdAt": 1,
+        "description": "A",
+        "note": "aaa",
+      }
+    }
+    formType="edit"
+    handleSubmit={[Function]}
+  >
+    <div>
+      <form
+        data-test-id="expense-form"
+        onSubmit={[Function]}
+      >
+        <input
+          data-test-id="description-input"
+          onChange={[Function]}
+          placeholder="description"
+          type="text"
+          value="A"
+        />
+        <input
+          data-test-id="amount-input"
+          onChange={[Function]}
+          placeholder="amount"
+          type="number"
+          value={10}
+        />
+        <input
+          onChange={[Function]}
+          placeholder="created at"
+          type="number"
+          value={1}
+        />
+        <textarea
+          data-test-id="note-input"
+          onChange={[Function]}
+          placeholder="Write your notes here (optional)"
+          value="aaa"
+        />
+        <button
+          type="submit"
+        >
+          Edit Expense
+        </button>
+      </form>
+    </div>
+  </ExpenseForm>
+  <button
+    data-test-id="remove-button"
+    onClick={[Function]}
+  >
+    Remove
+  </button>
+</EditExpensePage>
+`;

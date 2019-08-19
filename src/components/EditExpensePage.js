@@ -12,17 +12,14 @@ const EditExpensePage = ({
   removeExpense,
   history
 }) => {
-  const handleSubmit = useCallback(
-    (e, updates) => {
-      e.preventDefault()
+  const handleSubmit = useCallback(updates => {
       editExpense(id, updates)
       history.push(`/`)
     },
     []
   )
 
-  const handleRemoveClick = useCallback(
-    id => {
+  const handleRemoveClick = useCallback(id => {
       removeExpense(id)
       history.push(`/`)
     },
@@ -31,8 +28,18 @@ const EditExpensePage = ({
 
   return (
     <React.Fragment>
-      <ExpenseForm expense={expense} formType="edit" handleSubmit={handleSubmit} />
-      <button onClick={() => {handleRemoveClick(id)}}>Remove</button>
+      <ExpenseForm
+        expense={expense}
+        formType="edit"
+        handleSubmit={handleSubmit}
+        data-test-id="edit-expense-form"
+      />
+      <button
+        onClick={() => {handleRemoveClick(id)}}
+        data-test-id="remove-button"
+      >
+        Remove
+      </button>
     </React.Fragment>
   )
 }
@@ -50,3 +57,4 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps,
 )(EditExpensePage)
+export { EditExpensePage }
