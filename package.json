@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "enzyme-to-json": "^3.4.0",
-    "lodash": "^4.17.14",
+    "lodash": "^4.17.19",
     "moment": "^2.24.0",
     "react": "^16.8.6",
     "react-dates": "^20.2.5",
